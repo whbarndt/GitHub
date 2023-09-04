@@ -1,4 +1,5 @@
 # Added by whbarndt
 config.finance.yml
 businesses.finance.yml
+*.csv
 *.png
