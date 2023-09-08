@@ -5,7 +5,7 @@ import sys
 import yaml
 
 # Specify the path to the YAML file
-yaml_file_path = 'config.finance.yml'
+yaml_file_path = './config.finance.yml'
 
 # Open and read the YAML file
 with open(yaml_file_path, 'r') as file:
@@ -16,7 +16,7 @@ year = yaml_data['Year']
 path_to_expense_dir = yaml_data['Expenses_path']
 
 # Read Expense File and convert 'Date' to datetime
-expense_file = f'{year}-Expenses.csv'
+expense_file = f'{year}-Expense-Report.csv'
 expense_df = pd.read_csv(path_to_expense_dir + expense_file, comment='#')
 expense_df['Date'] = pd.to_datetime(expense_df['Date'])
 
