@@ -42,6 +42,6 @@ print("Which tag from the month would you like to see total expenses from?: [Opt
 tag_of_choice = input("Type 'quit' to quit\n")
     
 tag_month_expense = month_expenses[month_expenses['Tags'].str.contains(tag_of_choice, case=False, na=False)]
+print(tag_month_expense)
 tag_cost = tag_month_expense['Cost'].sum()
-print(f"Tag Expenses for month of {month_of_choice}: {tag_cost}")
-
+print(f"\nTag Expenses for month of {month_of_choice}: {tag_cost}")
