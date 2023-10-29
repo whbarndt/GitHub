@@ -53,20 +53,25 @@ for month_num_str in months_in_expenses:
         row_stats[f'{tag}_Expenses'] = tag_month_expense['Cost'].sum()
     row_stats_df = pd.DataFrame([row_stats])
     stats_df = pd.concat([stats_df, row_stats_df])
-stats_df.set_index('Month', inplace=True)
+#stats_df.set_index('Month', inplace=True)
 print(stats_df)
 
 # Stats Visualization
 sns.set_theme()
 
-plt.figure(figsize=[12, 8])
-ax = sns.lineplot(data=stats_df.drop(columns=['Total_Expenses']), markers=True)
+fig, ax = plt.subplots(figsize=[12, 8])
+#ax = sns.lineplot(data=stats_df.drop(columns=['Total_Expenses']), markers=True)
+stack_plt_x = stats_df['Month'].values
+stack_plt_y = stats_df.drop(columns=['Total_Expenses', 'Month']).T
+stats_plt_y_labels = stats_df.drop(columns=['Total_Expenses', 'Month']).columns.to_list()
+stack_plt = ax.stackplot(stack_plt_x, stack_plt_y)
 
-plt.title(f"{year} Expenses by Month")
-plt.xlabel("Months")
-plt.ylabel("Expense Cost ($)")
+ax.set_title(f"{year} Expenses by Month")
+ax.set_xlabel("Months")
+ax.set_ylabel("Expense Cost ($)")
+ax.legend(stack_plt, stats_plt_y_labels)
 
-plt.savefig(f"{year}_Tag_Expenses.png")
+plt.savefig(f"{year}_Tag_Expenses_Stacked.png")
 
 '''plt, ax = plt.subplots(figsize=[12,8])
 ax.set_title(f"{year} Expenses by Month")
