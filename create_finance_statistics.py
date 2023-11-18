@@ -15,11 +15,11 @@ with open(yaml_file_path, 'r') as file:
 
 # Load data from YAML file
 year = yaml_data['Year']
-path_to_expense_dir = yaml_data['Expenses_path']
+working_dir = yaml_data['Working_Dir']
 
 # Read Expense File and convert 'Date' to datetime
 expense_file = f'{year}-Expense-Report.csv'
-expense_df = pd.read_csv(path_to_expense_dir + expense_file, comment='#')
+expense_df = pd.read_csv(working_dir + expense_file, comment='#')
 expense_df['Date'] = pd.to_datetime(expense_df['Date'])
 
 # Get Unique Businesses, Locations and Tags
