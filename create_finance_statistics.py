@@ -28,7 +28,8 @@ businesses = expense_df['Business'].unique()
 unique_grouped_tags = expense_df['Tags'].unique()
 all_tags = '/'.join(expense_df['Tags']).split('/')
 unique_individual_tags = set(all_tags)
-tags_for_stats = ['Groceries', 'Snacks', 'Meal', 'Coffee', 'Entertainment', 'Membership', 'Car']
+tags_for_stats = ['Groceries', 'Snacks', 'Meal', 'Coffee', 'Entertainment', 'Membership', 'Car', 'Gift', 'Games']
+stack_tags_drop = ['Games_Expenses']
 
 # Create Statistics Dataframe
 stats_df = pd.DataFrame()
@@ -53,30 +54,27 @@ for month_num_str in months_in_expenses:
         row_stats[f'{tag}_Expenses'] = tag_month_expense['Cost'].sum()
     row_stats_df = pd.DataFrame([row_stats])
     stats_df = pd.concat([stats_df, row_stats_df])
-#stats_df.set_index('Month', inplace=True)
+stats_df = stats_df.set_index('Month')
 print(stats_df)
 
 # Stats Visualization
-sns.set_theme()
-
-fig, ax = plt.subplots(figsize=[12, 8])
-#ax = sns.lineplot(data=stats_df.drop(columns=['Total_Expenses']), markers=True)
-stack_plt_x = stats_df['Month'].values
-stack_plt_y = stats_df.drop(columns=['Total_Expenses', 'Month']).T
-stats_plt_y_labels = stats_df.drop(columns=['Total_Expenses', 'Month']).columns.to_list()
-stack_plt = ax.stackplot(stack_plt_x, stack_plt_y)
-
-ax.set_title(f"{year} Expenses by Month")
-ax.set_xlabel("Months")
-ax.set_ylabel("Expense Cost ($)")
-ax.legend(stack_plt, stats_plt_y_labels)
-
-plt.savefig(f"{year}_Tag_Expenses_Stacked.png")
-
-'''plt, ax = plt.subplots(figsize=[12,8])
-ax.set_title(f"{year} Expenses by Month")
-ax.set_xlabel("Months")
-ax.set_ylabel("Expense Cost ($)")
+sns.set_theme(style='darkgrid')
 stats_df_no_total = stats_df.drop(columns=['Total_Expenses'])
+
+# Line Plot
+fig, ax = plt.subplots(figsize=[12,8])
 stats_df_no_total.plot(ax=ax)
-plt.savefig(f"{year}_Tag_Expenses.png")'''
+ax.set_title(f"{year} Expenses by Month")
+ax.set_xlabel("Months")
+ax.set_ylabel("Expense Cost ($)")
+plt.savefig(f"{year}_Tag_Expenses.png")
+
+# Stacked Plot
+stats_df_no_total = stats_df_no_total.drop(columns=stack_tags_drop)
+
+fig_2, ax_2 = plt.subplots(figsize=[12, 8])
+stats_df_no_total.plot.area(ax=ax_2)
+ax_2.set_title(f"{year} Expenses by Month")
+ax_2.set_xlabel("Months")
+ax_2.set_ylabel("Expense Cost ($)")
+plt.savefig(f"{year}_Tag_Expenses_Stacked.png")
