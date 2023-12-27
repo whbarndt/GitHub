@@ -1,0 +1,78 @@
+Housing:
+  - Rent
+Utilities:
+  - Heating
+  - Electricity
+  - Internet
+  - Phone_Service
+Transportation:
+  - Car_Fuel
+  - Car_Maintenance
+  - Car_Supplies
+  - Car_Registration
+  - Parking
+  - Towing
+Food:
+  - Groceries
+  - Snacks
+  - Meal
+  - Coffee
+  - Foodie_Night
+  - Alcohol
+Insurance:
+  - Auto_Insurance
+  - Health_Insurance
+  - Renters_Insurance
+Medical_&_Healthcare:
+  - Therapy
+  - Dental_Care
+  - Urgent_Care
+  - Lab
+  - Medication
+Saving_&_Investing_&_Debt_Payments:
+  - Personal_Savings
+  - 401k_RothIRA
+  - Family-Friend_Debt
+Education_&_Career_Development:
+  - School:
+      - Tuition
+      - Application_Fees
+      - Other_Fees
+      - Textbooks
+  - Buisness_&_Administration_Tools:
+      - Administration_Software
+      - Domain_Rental
+  - Educational_Tools:
+      - Educational_Software
+      - Books
+Personal_Spending:
+  - Clothing
+  - Tools
+  - Home:
+    - Supplies
+    - Furniture_&_Decor
+  - Gifts
+  - Charity
+  - Fitness:
+    - Gym
+Recreation_&_Entertainment:
+  - Group_Outing:
+      - Group_Meal
+      - Movie
+      - Theater-Orchestra
+  - Video_Games
+  - Books
+  - Computer_Parts
+  - News
+  - Video_Streaming
+  - Streaming:
+    - Supplies
+  - Music:
+      - Vinyl
+  - Travel:
+      - Lodging
+Miscellanous:
+  - Fee
+  - Membership
+  - Family_Funds
+  - I_Dont_Know

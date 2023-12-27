@@ -28,8 +28,8 @@ businesses = expense_df['Business'].unique()
 unique_grouped_tags = expense_df['Tags'].unique()
 all_tags = '/'.join(expense_df['Tags']).split('/')
 unique_individual_tags = set(all_tags)
-tags_for_stats = ['Groceries', 'Snacks', 'Meal', 'Coffee', 'Entertainment', 'Membership', 'Car', 'Gift', 'Games']
-stack_tags_drop = ['Games_Expenses']
+tags_for_stats = ['Groceries', 'Snacks', 'Meal', 'Coffee', 'Recreation_&_Entertainment', 'Membership', 'Transportation', 'Gifts', 'Video_Games']
+stack_tags_drop = ['Video_Games_Expenses']
 
 # Create Statistics Dataframe
 stats_df = pd.DataFrame()
