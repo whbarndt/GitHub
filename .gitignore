@@ -1,6 +1,5 @@
 # Added by whbarndt
-config.finance.yml
-businesses.finance.yml
+config.local.finance.yml
 *.csv
 *.png
 *.txt
