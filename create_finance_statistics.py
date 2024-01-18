@@ -7,7 +7,7 @@ import sys
 import yaml
 
 # Specify the path to the YAML file
-yaml_file_path = 'config.finance.yml'
+yaml_file_path = 'config.local.finance.yml'
 
 # Open and read the YAML file
 with open(yaml_file_path, 'r') as file:
