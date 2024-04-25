@@ -28,8 +28,8 @@ businesses = expense_df['Business'].unique()
 unique_grouped_tags = expense_df['Tags'].unique()
 all_tags = '/'.join(expense_df['Tags']).split('/')
 unique_individual_tags = set(all_tags)
-tags_for_stats = ['Groceries', 'Snacks', 'Meal', 'Drinks', 'Coffee', 'Recreation_&_Entertainment', 'Video_Games', 'Membership', 'Transportation', 'Gifts']
-stack_tags_drop = ['Video_Games_Expenses', 'Coffee_Expenses']
+tags_for_stats = ['Groceries', 'Snacks', 'Meal', 'Drinks', 'Coffee', 'Recreation_&_Entertainment', 'Games', 'Membership', 'Transportation', 'Gifts']
+stack_tags_drop = ['Games_Expenses', 'Coffee_Expenses']
 
 # Create Statistics Dataframe
 stats_df = pd.DataFrame()
@@ -56,6 +56,7 @@ for month_num_str in months_in_expenses:
     stats_df = pd.concat([stats_df, row_stats_df])
 stats_df = stats_df.set_index('Month')
 print(stats_df)
+stats_df.to_csv(f"{year}_Expenses.csv")
 
 # Stats Visualization
 sns.set_theme(style='darkgrid')
