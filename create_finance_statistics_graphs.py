@@ -56,7 +56,7 @@ for month_num_str in months_in_expenses:
     stats_df = pd.concat([stats_df, row_stats_df])
 stats_df = stats_df.set_index('Month')
 print(stats_df)
-stats_df.to_csv(f"{year}_Expenses.csv")
+#stats_df.to_csv(f"{year}_Expenses.csv")
 
 # Stats Visualization
 sns.set_theme(style='darkgrid')
