@@ -77,3 +77,5 @@ def main():
     ax_2.set_xlabel("Months")
     ax_2.set_ylabel("Expense Cost ($)")
     plt.savefig(f"{year}_Tag_Expenses_Stacked.png")
+
+main()
